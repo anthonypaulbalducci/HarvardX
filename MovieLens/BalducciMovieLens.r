@@ -46,7 +46,7 @@ core_subtraction_factor <- 4 # subtract a certain number of cores from detected 
                              # in a typical instance at least *one* core is required free for OS 
                              # processing.
 
-pCluster <- makeCluster(numCores[1] - core_subtraction_factor) # Leaves four cores free for required concurrent processes.
+pCluster <- makeCluster(numCores[1] - core_subtraction_factor) # Generate cluster -- Total cores minus core subtraction factor.
 
 # Register cluster
 
