@@ -13,6 +13,7 @@
  if(!require(recosystem)) install.packages("recosystem", repos = "http://cran.us.r-project.org")
  if(!require(doParallel)) install.packages("doParallel", repos = "http://cran.us.r-project.org")
  if(!require(parallel)) install.packages("parallel", repos = "http://cran.us.r-project.org")
+ if(!require(scales)) install.packages("scales", repos = "http://cran.us.r-project.org")
  
 
 library(tidyverse)
@@ -41,7 +42,11 @@ numCores<-detectCores() # 12 cores detected
 # In practice I found leaving at least 20-30% CPU/RAM resources at minimum is required
 # to produce stable results.
 
-pCluster <- makeCluster(numCores[1]-4) # Leaves four cores free for required concurrent processes.
+core_subtraction_factor <- 4 # subtract a certain number of cores from detected for system stability
+                             # in a typical instance at least *one* core is required free for OS 
+                             # processing.
+
+pCluster <- makeCluster(numCores[1] - core_subtraction_factor) # Leaves four cores free for required concurrent processes.
 
 # Register cluster
 
