@@ -136,7 +136,7 @@ $$
 
 Not satisfied with the very rough estimation methods we went over in the course-- nor to mention that these methods still would not be able to lead one to actual predictions, I was determined, despite the constraints of such a large data set on resources to find a workable solution. -- And I admit, I spent around two months beating my head against the wall in the process. Either the models available that I first tried were too inefficient, ran for days without results, or even with a souped up desktop as I previously mentioned would run over night and then just crash.
 
-Smaller sample taken from the test sets, either via sample_() or slice_sample() often produced lack luster results.
+Smaller sample taken from the test sets, either via sample_n() or slice_sample() often produced lack luster results.
 
 Before we delve into that lets consider the forms of equations that were considered. One of the first, and at times, most important questions arises when one must consider feature selection, or additionally feature engineering.
 
