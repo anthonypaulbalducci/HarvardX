@@ -140,6 +140,14 @@ Smaller sample taken from the test sets, either via sample_n() or slice_sample()
 
 Before we delve into that lets consider the forms of equations that were considered. One of the first, and at times, most important questions arises when one must consider feature selection, or additionally feature engineering.
 
+### Introducing GLMNet
+
+GLMNet, from researchers at Stanford University, tries to solve the problem:
+
+$$
+\min_{\beta_0,\beta} \frac{1}{N} \sum_{i=1}^{N} w_i l(y_i,\beta_0+\beta^T x_i) + \lambda\left[(1-\alpha)\|\beta\|_2^2/2 + \alpha \|\beta\|_1\right]
+$$
+
 While at first I tried for some time working with standard lm() or logistic based regressions, I finally found the 'glmnet' package worked the best for meeting my needs.^[https://glmnet.stanford.edu/articles/glmnet.html] Produced out of Stanford University it provides automated LASSO regularization coupled with built in cross validation in a very fast, easy to use package that integrates well with caret. I would highly recommend it to any one for other use cases.
 
 As to selection of features, userId and movieId were of course obvious choices leading to a base equation of the form:
